@@ -1,0 +1,23 @@
+name: Ejecutar Hola Mundo
+
+# Se ejecuta cada vez que se hace un push al repositorio
+on: [push]
+
+jobs:
+  run-hola-mundo:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Paso para clonar el código del repositorio
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Instalación de Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14' # O cualquier versión de Node.js que estés utilizando
+
+      # Ejecutar el archivo JavaScript
+      - name: Run Hola Mundo script
+        run: node holaMundo.js
