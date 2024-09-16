@@ -20,4 +20,4 @@ jobs:
 
       # Ejecutar el archivo JavaScript
       - name: Run Hola Mundo script
-        run: node scripts/holaMundo.js
+        run: node .github/script/holaMundo.js
