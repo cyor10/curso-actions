@@ -1,0 +1,25 @@
+name: Contextos y GitHub
+
+on:
+  push:
+    branches:
+      - aprendiendo-github-actions
+  pull_request:
+    branches:
+      - aprendiendo-github-actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v2
+
+      - name: Usar contexto de GitHub
+        run: |
+          echo "Repositorio: ${{ github.repository }}"
+          echo "Evento que activó el workflow: ${{ github.event_name }}"
+          echo "Actor que activó el evento: ${{ github.actor }}"
+          echo "Rama actual: ${{ github.ref }}"
+          echo "URL del repo: ${{ github.server_url }}/${{ github.repository }}"

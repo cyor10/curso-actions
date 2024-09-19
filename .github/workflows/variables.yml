@@ -1,0 +1,27 @@
+name: Workflow con Variables de Mes
+
+on:
+  push:
+    branches:
+      - aprendiendo-github-actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:  # Definimos una variable de entorno personalizada con el mes
+      MES_ACTUAL: "Septiembre"
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v2
+
+      - name: Imprimir el mes actual
+        run: |
+          echo "El mes actual es: ${{ env.MES_ACTUAL }}"
+
+      - name: Usar variables de GitHub
+        run: |
+          echo "Repositorio: ${{ github.repository }}"
+          echo "Rama actual: ${{ github.ref }}"
+          echo "Actor que activó el workflow: ${{ github.actor }}"
